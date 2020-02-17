@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATTE MUREAK</title>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <img src="./images/top.png" alt="マテムリ">
+        </div>
+        <h1>どうしてこうなったんですか？</h1>
+        <div class="doushite">
+            <div class="flyer">
+                いい感じのフライヤー
+            </div>
+            <div class="info">
+                <h4>MATTE MUREAK</h4>
+                <ul>
+                    <li>開催場所とか</li>
+                    <li>日時とか</li>
+                    <li>箱の場所とか</li>
+                    <li>ハッシュタグとか</li>
+                    <li>オタクの叫びとか</li>
+                </ul>
+            </div>
+        </div>
+        <h2>ARTIST</h2>
+        <div class="artists">
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+            <div class="white-square"></div>
+        </div>
+        <div class="ticket-head">
+            <span>TICKET</span>
+            <img src="./images/ticket_icon.png" alt="チケット">
+        </div>
+        <h2>映像とか告知</h2>
+        <div class="movies">
+            <video src="./movies/title_01_5.mp4" controls></video>
+            <video src="./movies/title_01_5.mp4" controls></video>
+        </div>
+        <h3>主催者</h3>
+    </div>
+</body>
+<style>
+html,body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #4188B6;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    width: 75%;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid white;
+}
+
+h2 {
+    text-align: center;
+    width: 80%;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid white;
+    position: relative;
+    margin: 3rem 0;
+}
+
+h2::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: -8px;
+    border-bottom: 2px solid white;
+}
+
+h3 {
+    font-size: 140%;
+}
+
+.top, .top > img{
+    max-width: 100%;
+}
+
+.doushite {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    min-width: 80%;
+    min-height: 600px;
+}
+
+.flyer {
+    background-color: white;
+    color: #4188B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150%;
+}
+
+.artists {
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: repeat(3,300px);
+    grid-template-columns: repeat(3,300px);
+    grid-gap: 40px 30px;
+}
+
+.info {
+    padding: 40px;
+}
+
+.info > h4 {
+    font-size: 200%;
+    margin: 0 0 0.4em 0;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    font-size: 120%;
+    list-style: none;
+}
+
+.white-square {
+    position: relative;
+    background-color: white;
+}
+
+.artists > .white-square::after {
+    position: absolute;
+    content: '';
+    bottom: 5px;
+    right: 5px;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-image: url(./images/hand.png);
+    background-size: contain;
+    vertical-align: middle;
+}
+
+.ticket-head {
+    margin: 50px 0;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFFFFFDA;
+}
+
+.ticket-head > span {
+    color: #4188B6;
+    font-size: 150%;
+}
+
+.ticket-head > img {
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-template-rows: 400px;
+    grid-gap: 0 50px;
+}
+
+video {
+    max-width: 100%;
+}
+</style>
+</html>
