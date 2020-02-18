@@ -1,16 +1,46 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MATTE MUREAK</title>
+    <meta property="og:title" content="マテムリファンサイト">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="images/ogp.png">
+    <meta property="og:site_name" content="MATTEMUREAK">
+    <meta property="og:description" content="MATTEMUREAKの非公式ファンサイトです！">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <script>
+        (function(d) {
+          let config = {
+            kitId: 'pbq6umk',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
 </head>
 <body>
+    <header>
+        <div class="title">
+            <p>MATTEMUREAK</p>
+        </div>
+        <nav>
+            <a href="#top">Top</a>
+            <a href="#about">About</a>
+            <a href="#artists">Artist</a>
+            <a href="#ticket">Ticket</a>
+        </nav>
+    </header>
     <div class="main">
-        <div class="top">
+        <div  id="top" class="top">
             <img src="./images/top.png" alt="マテムリ">
         </div>
-        <h1>どうしてこうなったんですか？</h1>
+        <h1 id="about">どうしてこうなったんですか？</h1>
         <div class="doushite">
             <div class="flyer">
                 いい感じのフライヤー
@@ -26,7 +56,7 @@
                 </ul>
             </div>
         </div>
-        <h2>ARTIST</h2>
+        <h2 id="artists">ARTIST</h2>
         <div class="artists">
             <div class="white-square"></div>
             <div class="white-square"></div>
@@ -39,7 +69,7 @@
             <div class="white-square"></div>
         </div>
         <div class="ticket-head">
-            <span>TICKET</span>
+            <span id="ticket">TICKET</span>
             <img src="./images/ticket_icon.png" alt="チケット">
         </div>
         <h2>映像とか告知</h2>
@@ -48,6 +78,17 @@
             <video src="./movies/title_01_5.mp4" controls></video>
         </div>
         <h3>主催者</h3>
+        <div class="promoter">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+
+        </div>
+
     </div>
 </body>
 <style>
@@ -57,12 +98,90 @@ html,body {
     padding: 0;
     width: 100%;
     background-color: #4188B6;
+    font-family: dnp-shuei-gothic-kin-std, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    scroll-behavior: smooth;
 }
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #4188B6;
+    font-size: 120%;
+    z-index: 98;
+    font-weight: 600;
+}
+
+.title {
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin-left: 20px;
+    padding: 0px 2em;
+    color: #4188b6;
+    font-weight: bold;
+}
+.title:before {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+    transform: skewX(-40deg);
+    background-color: #fff;
+    content: "";
+}
+
+.title p{
+    margin: 10px;
+    text-align: center;
+}
+
+header nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    padding: .6em 0;
+    width: 80%;
+    top: 0;
+    right: 0;
+}
+
+header nav a {
+    position: relative;
+    text-decoration: none;
+    color: #EFEFEF;
+}
+
+header nav a::after {
+    position: absolute;
+    bottom: -0.3em;
+    left: -5%;
+    content: '';
+    width: 110%;
+    height: 1.5px;
+    background: #EFEFEF;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+}
+
+header nav a:hover::after {
+    transform: scale(1, 1);
+}
+
 .main{
     width: 100%;
     display: flex;
@@ -70,11 +189,14 @@ body {
     align-items: center;
 }
 
+
 h1 {
     text-align: center;
     width: 75%;
     padding-bottom: 0.4em;
     border-bottom: 2px solid white;
+    margin-top: -40px;
+    padding-top: 40px;
 }
 
 h2 {
@@ -84,6 +206,8 @@ h2 {
     border-bottom: 2px solid white;
     position: relative;
     margin: 3rem 0;
+    margin-top: -50px;
+    padding-top: 80px;
 }
 
 h2::after{
@@ -180,6 +304,8 @@ ul li {
 .ticket-head > span {
     color: #4188B6;
     font-size: 150%;
+    margin-top: -60px;
+    padding-top: 60px;
 }
 
 .ticket-head > img {
@@ -196,6 +322,80 @@ ul li {
 
 video {
     max-width: 100%;
+}
+
+.promoter{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.circle{
+    width: 60px;
+	height: 60px;
+	border-radius: 50%;
+    margin: 20px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 980px) {
+
+.main{
+    margin-top: 80px;
+}
+
+header nav{
+    position: relative;
+    width: 100%;
+    background-color: #4188B6;
+}
+
+.top{
+    margin-top: -60px;
+    padding-top: 60px;
+}
+h1{
+    font-size: 120%;
+    margin-top: -110px;
+    padding-top: 110px;
+}
+
+h2{
+    margin-top: -50px;
+    padding-top: 120px;
+}
+
+.doushite{
+    grid-template-columns: 1fr;
+    min-height: 300px;
+}
+
+.flyer{
+    height: 400px;
+}
+.artists{
+    width: 80%;
+    grid-template-rows: repeat(9,300px);
+    grid-template-columns: 1fr;
+    grid-gap: 40px 30px;
+}
+
+.ticket-head > span {
+    margin-top: -100px;
+    padding-top: 100px;
+}
+
+.movies {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 50px 0;
+}
+
+
+.circle{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
 }
 </style>
 </html>
